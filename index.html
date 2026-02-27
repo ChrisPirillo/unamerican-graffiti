@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en"><head><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1CQ4D3VQ3L"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1CQ4D3VQ3L');
+  </script>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<title>Unamerican Graffiti</title>
+
+<meta name="description" content="A procedural art generator simulating structural decay through agent-based movement, glitch effects, and deterministic noise-driven rendering.">
+<meta name="keywords" content="Generative Art, p5.js, Procedural Generation, Abstract Visuals, Glitch Art, Design Tool, Digital Art, Wallpaper Generator">
+<meta name="author" content="Chris Pirillo">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+<meta name="application-name" content="Unamerican Graffiti">
+<meta name="apple-mobile-web-app-title" content="Unamerican Graffiti">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:site_name" content="Chris Pirillo's Arcade">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unamerican Graffiti">
+<meta property="og:description" content="A procedural art generator simulating structural decay through agent-based movement, glitch effects, and deterministic noise-driven rendering.">
+<meta property="og:url" content="https://arcade.pirillo.com/unamerican-graffiti.html">
+<meta property="og:image" content="https://arcade.pirillo.com/images/unamerican-graffiti.png">
+<meta property="og:image:alt" content="Unamerican Graffiti">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-26T23:47:18.828Z">
+<meta property="article:author" content="Chris Pirillo">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ChrisPirillo">
+<meta name="twitter:creator" content="@ChrisPirillo">
+<meta name="twitter:title" content="Unamerican Graffiti">
+<meta name="twitter:description" content="A procedural art generator simulating structural decay through agent-based movement, glitch effects, and deterministic noise-driven rendering.">
+<meta name="twitter:image" content="https://arcade.pirillo.com/images/unamerican-graffiti.png">
+<meta name="twitter:domain" content="arcade.pirillo.com">
+<meta name="twitter:url" content="https://arcade.pirillo.com/unamerican-graffiti.html">
+
+<link rel="canonical" href="https://arcade.pirillo.com/unamerican-graffiti.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Unamerican Graffiti",
+  "description": "A procedural art generator simulating structural decay through agent-based movement, glitch effects, and deterministic noise-driven rendering.",
+  "url": "https://arcade.pirillo.com/unamerican-graffiti.html",
+  "image": "https://arcade.pirillo.com/images/unamerican-graffiti.png",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://arcade.pirillo.com/images/unamerican-graffiti.png"
+  },
+  "datePublished": "2026-02-26T23:47:18.828Z",
+  "dateModified": "2026-02-26T23:47:18.828Z",
+  "author": {
+    "@type": "Person",
+    "name": "Chris Pirillo",
+    "url": "https://pirillo.com",
+    "sameAs": [
+      "https://x.com/ChrisPirillo",
+      "https://linkedin.com/in/chrispirillo"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chris Pirillo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pirillo.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "WebApplication",
+    "name": "Unamerican Graffiti",
+    "description": "A procedural art generator simulating structural decay through agent-based movement, glitch effects, and deterministic noise-driven rendering.",
+    "image": "https://arcade.pirillo.com/images/unamerican-graffiti.png",
+    "operatingSystem": "Any",
+    "applicationCategory": "Simulation",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Chris Pirillo",
+      "url": "https://pirillo.com"
+    },
+    "datePublished": "2026-02-26T23:47:18.828Z",
+    "inLanguage": "en-US"
+  }
+}</script>
+
+<meta charset="UTF-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" defer=""></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com&amp;display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<style>:root { --bg-color: #080808; --panel-bg: rgba(10, 10, 10, 0.94); --accent: #ffffff; }
+body { margin: 0; padding: 0; overflow: hidden; background-color: var(--bg-color); font-family: 'Inter', sans-serif; color: white; user-select: none; -webkit-user-select: none; touch-action: none; }
+canvas { display: block; }
+#fade-overlay { position: fixed; inset: 0; background: black; opacity: 0; pointer-events: none; z-index: 40; transition: opacity 0.3s ease-in-out; }
+#fade-overlay.active { opacity: 1; }
+.menu-trigger { position: fixed; top: 20px; right: 20px; z-index: 50; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); padding: 12px; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+.menu-trigger:hover { background: rgba(255,255,255,0.1); border-color: white; }
+#settings-panel { position: fixed; top: 0; right: -100%; width: 100%; max-width: 440px; height: 100vh; background: var(--panel-bg); backdrop-filter: blur(30px); z-index: 100; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,0.1); box-shadow: -20px 0 60px rgba(0,0,0,0.9); }
+#settings-panel.open { right: 0; }
+.sticky-header { position: sticky; top: 0; background: rgba(10, 10, 10, 0.98); padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+.scroll-body { flex: 1; overflow-y: auto; padding: 24px; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; }
+.control-group { margin-bottom: 18px; transition: opacity 0.2s ease; }
+.control-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.45); font-weight: 700; }
+.val-display { font-size: 0.65rem; font-family: monospace; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 2px; }
+input[type="range"] { width: 100%; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; appearance: none; cursor: pointer; transition: background 0.2s; }
+input[type="range"]::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; background: #fff; border-radius: 1px; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+.action-btn { width: 100%; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; transition: all 0.2s; cursor: pointer; border-radius: 2px; }
+.action-btn:hover { background: white; color: black; }
+.action-btn.primary { background: white; color: black; }
+#info-modal { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); padding: 20px; }
+.modal-content { background: #0d0d0d; border: 1px solid rgba(255,255,255,0.1); padding: 40px; max-width: 520px; width: 100%; position: relative; border-radius: 2px; box-shadow: 0 30px 60px rgba(0,0,0,1); }
+@media (max-width: 768px) { #settings-panel { max-width: 100%; }
+}</style>
+</head>
+<body><h1 style="display: none;">Unamerican Graffiti</h1>
+
+    <div id="fade-overlay"></div>
+
+    <div class="menu-trigger" onclick="toggleMenu(true)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </div>
+
+    <div id="settings-panel">
+        <div class="sticky-header">
+            <div class="flex items-center gap-4">
+                <h2 class="font-extrabold text-xs tracking-widest uppercase">Unamerican Graffiti</h2>
+                <button onclick="toggleModal(true)" class="opacity-40 hover:opacity-100 transition-opacity" aria-label="opacity 40 hover:opacity 100 transition opacity">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" x2="12.01" y1="17" y2="17"></line></svg>
+                </button>
+            </div>
+            <button onclick="toggleMenu(false)" class="p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="p 2 hover:bg white/10 rounded full transition colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <div class="scroll-body">
+            <div class="control-group" id="baseColor-group">
+                <div class="control-header">
+                    <label>Base Color</label>
+                    <span class="val-display" id="val-baseColor">#FF1493</span>
+                </div>
+                <input type="color" id="input-baseColor" value="#ff1493" class="w-full h-8 bg-transparent cursor-pointer border-0 p-0 rounded" aria-label="color">
+            </div>
+            <div class="control-group flex justify-between items-center mb-4">
+                <label class="m-0">Constrain Hue Range</label>
+                <input type="checkbox" id="input-constrainHue" class="cursor-pointer w-4 h-4 accent-white" aria-label="checkbox">
+            </div>
+
+            <div id="dynamic-sliders"></div>
+
+            <hr class="border-white/5 my-8">
+
+            <button class="action-btn primary" onclick="triggerRandomization(true)">Fracture Reality</button>
+            <button class="action-btn" onclick="export4K()">Export 4K Wallpaper</button>
+            <button class="action-btn" onclick="resetToDefaults()">Reset Defaults</button>
+            
+            <div class="grid grid-cols-2 gap-2 mt-4">
+                <button class="action-btn text-[9px]" onclick="exportSettings()">Save Config</button>
+                <button class="action-btn text-[9px]" onclick="document.getElementById('import-file').click()">Load Config</button>
+                <input type="file" id="import-file" class="hidden" accept=".json" onchange="importSettings(this)" aria-label="file">
+            </div>
+        </div>
+    </div>
+
+    <div id="info-modal" onclick="if(event.target === this) toggleModal(false)">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold mb-6 uppercase tracking-widest">System Intelligence</h3>
+            <p class="text-[10px] text-gray-500 mb-8 leading-relaxed uppercase tracking-widest">
+                This engine simulates structural decay through agent-based procedural generation. 
+                <br><br>
+                <strong>Controls:</strong> Adjust sliders to immediately re-render. All parameters are deterministic to the current seed.
+                Double-tap background or click to cycle the seed and randomize all settings.
+            </p>
+            <div class="flex flex-col gap-4">
+                <a href="https://arcade.pirillo.com/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors text-gray-500 border-b border-white/5 pb-2">More of My Apps</a>
+                <a href="https://chris.pirillo.com/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors text-gray-500 border-b border-white/5 pb-2">Follow Chris Pirillo</a>
+                <a href="https://ctrlaltcreate.live/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors text-gray-500 border-b border-white/5 pb-2">Learn How to Make Apps</a>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=UMWCDWGVXVHZU" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors text-gray-500 border-b border-white/5 pb-2">Donate to Me Here</a>
+                <a href="https://patreon.com/ChrisPirillo" target="_blank" class="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors text-gray-500 border-b border-white/5 pb-2">Support My Patreon</a>
+            </div>
+            <button onclick="toggleModal(false)" class="absolute top-8 right-8 opacity-30 hover:opacity-100" aria-label="absolute top 8 right 8 opacity 30 hover:opacity 100">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- System Configuration & Definitions ---
+        let config = {
+            numAgents: 600,
+            glitchCount: 40,
+            inkCount: 200,
+            agentLife: 150,
+            agentVel: 12,
+            fractureProb: 0.94,
+            teleportProb: 0.98,
+            noiseScale: 0.03,
+            baseWeight: 18,
+            chaosIntensity: 0.1,
+            autoAdvance: 0,
+            baseColor: '#ff1493',
+            constrainHue: false,
+            brushVariety: 0.5,
+            noiseOctaves: 4
+        };
+
+        const SLIDER_DEFS = [
+            { id: 'autoAdvance', label: 'Auto-Advance (Sec)', min: 0, max: 60, step: 1 },
+            { id: 'numAgents', label: 'Entropy Agents', min: 10, max: 1500, step: 1 },
+            { id: 'agentLife', label: 'Life Endurance', min: 10, max: 400, step: 1 },
+            { id: 'agentVel', label: 'Linear Momentum', min: 0.5, max: 25, step: 0.1 },
+            { id: 'noiseScale', label: 'Noise Frequency', min: 0.001, max: 0.1, step: 0.001 },
+            { id: 'chaosIntensity', label: 'Chaos Distortion', min: 0.01, max: 0.5, step: 0.01 },
+            { id: 'noiseOctaves', label: 'Noise Detail', min: 1, max: 8, step: 1 },
+            { id: 'baseWeight', label: 'Stroke Girth', min: 1, max: 60, step: 0.5 },
+            { id: 'brushVariety', label: 'Brush Diversity', min: 0, max: 1, step: 0.01 },
+            { id: 'glitchCount', label: 'Structural Cracks', min: 0, max: 150, step: 1 },
+            { id: 'inkCount', label: 'Ink Fallout', min: 0, max: 800, step: 1 },
+            { id: 'fractureProb', label: 'Fracture Shift', min: 0.5, max: 0.999, step: 0.001 },
+            { id: 'teleportProb', label: 'Warp Frequency', min: 0.8, max: 0.999, step: 0.001 }
+        ];
+
+        let autoAdvanceTimer = null;
+        let mainBuffer;
+        let currentSeed = 0;
+
+        // --- UI Operations ---
+        function createSliders() {
+            const container = document.getElementById('dynamic-sliders');
+            container.innerHTML = '';
+            SLIDER_DEFS.forEach(def => {
+                const group = document.createElement('div');
+                group.className = 'control-group';
+                
+                const val = config[def.id];
+                group.innerHTML = `
+                    <div class="control-header">
+                        <label>${def.label}</label>
+                        <span class="val-display" id="val-${def.id}">${val}</span>
+                    </div>
+                    <input type="range" id="input-${def.id}" 
+                           min="${def.min}" max="${def.max}" step="${def.step}" 
+                           value="${val}">
+                `;
+                
+                const input = group.querySelector('input');
+                input.addEventListener('input', (e) => {
+                    config[def.id] = parseFloat(e.target.value);
+                    document.getElementById(`val-${def.id}`).innerText = config[def.id];
+                    if (def.id === 'autoAdvance') handleAutoAdvance();
+                    generate(); 
+                });
+                
+                container.appendChild(group);
+            });
+        }
+
+        function initColorControls() {
+            const bcInput = document.getElementById('input-baseColor');
+            const bcDisplay = document.getElementById('val-baseColor');
+            bcInput.addEventListener('input', (e) => {
+                config.baseColor = e.target.value;
+                bcDisplay.innerText = config.baseColor.toUpperCase();
+                generate();
+            });
+            
+            const chInput = document.getElementById('input-constrainHue');
+            chInput.addEventListener('change', (e) => {
+                config.constrainHue = e.target.checked;
+                updateUI();
+                generate();
+            });
+        }
+
+        function toggleMenu(show) {
+            document.getElementById('settings-panel').classList.toggle('open', show);
+        }
+
+        function toggleModal(show) {
+            document.getElementById('info-modal').style.display = show ? 'flex' : 'none';
+        }
+
+        function triggerRandomization(shouldRandomize = true) {
+            const overlay = document.getElementById('fade-overlay');
+            overlay.classList.add('active');
+            
+            setTimeout(() => {
+                currentSeed = Math.floor(Math.random() * 1000000);
+                if (shouldRandomize) {
+                    randomizeAllSettings();
+                }
+                updateUI();
+                generate();
+                overlay.classList.remove('active');
+            }, 300);
+        }
+
+        function randomizeAllSettings() {
+            SLIDER_DEFS.forEach(def => {
+                let val = random(def.min, def.max);
+                if (def.step >= 1) {
+                    val = Math.floor(val);
+                } else {
+                    let precision = (def.step.toString().split('.')[1] || '').length;
+                    val = parseFloat(val.toFixed(precision));
+                }
+                config[def.id] = val;
+            });
+
+            config.baseColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            config.constrainHue = Math.random() > 0.5;
+        }
+
+        function updateUI() {
+            SLIDER_DEFS.forEach(def => {
+                const input = document.getElementById(`input-${def.id}`);
+                const display = document.getElementById(`val-${def.id}`);
+                if (input) input.value = config[def.id];
+                if (display) display.innerText = config[def.id];
+            });
+
+            const bcGroup = document.getElementById('baseColor-group');
+            const bcInput = document.getElementById('input-baseColor');
+            const bcDisplay = document.getElementById('val-baseColor');
+            
+            if (bcInput) bcInput.value = config.baseColor;
+            if (bcDisplay) bcDisplay.innerText = config.baseColor.toUpperCase();
+            
+            const chInput = document.getElementById('input-constrainHue');
+            if (chInput) chInput.checked = config.constrainHue;
+
+            if (bcGroup && bcInput) {
+                if (config.constrainHue) {
+                    bcGroup.style.opacity = '1';
+                    bcGroup.style.pointerEvents = 'auto';
+                    bcInput.disabled = false;
+                } else {
+                    bcGroup.style.opacity = '0.3';
+                    bcGroup.style.pointerEvents = 'none';
+                    bcInput.disabled = true;
+                }
+            }
+
+            handleAutoAdvance();
+        }
+
+        function handleAutoAdvance() {
+            if (autoAdvanceTimer) clearInterval(autoAdvanceTimer);
+            if (config.autoAdvance > 0) {
+                autoAdvanceTimer = setInterval(triggerRandomization, config.autoAdvance * 1000);
+            }
+        }
+
+        function resetToDefaults() {
+            // Restore hardcoded defaults
+            config = {
+                numAgents: 600, glitchCount: 40, inkCount: 200, agentLife: 150, 
+                agentVel: 12, fractureProb: 0.94, teleportProb: 0.98, noiseScale: 0.03,
+                baseWeight: 18, chaosIntensity: 0.1, autoAdvance: 0, baseColor: '#ff1493',
+                constrainHue: false, brushVariety: 0.5, noiseOctaves: 4
+            };
+            // Trigger transition WITHOUT re-randomizing the config we just set
+            triggerRandomization(false);
+        }
+
+        function exportSettings() {
+            const data = JSON.stringify(config, null, 2);
+            const blob = new Blob([data], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const date = new Date().toISOString().replace(/[:.]/g, '-');
+            a.href = url;
+            a.download = `UnamericanGraffiti_Settings_${date}.json`;
+            a.click();
+        }
+
+        function importSettings(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    config = { ...config, ...imported };
+                    updateUI();
+                    generate();
+                } catch (err) { console.error("Load failed", err); }
+            };
+            reader.readAsText(file);
+        }
+
+        function export4K() {
+            const exportCanvas = createGraphics(3840, 2160);
+            exportCanvas.pixelDensity(1);
+            renderToBuffer(exportCanvas);
+            const date = new Date().toISOString().replace(/[:.]/g, '-');
+            save(exportCanvas, `UnamericanGraffiti_4K_${date}.png`);
+        }
+
+        // --- Core Engine ---
+        function setup() {
+            pixelDensity(displayDensity());
+            let w = Math.max(1, windowWidth);
+            let h = Math.max(1, windowHeight);
+            createCanvas(w, h);
+            mainBuffer = createGraphics(w, h);
+            mainBuffer.pixelDensity(displayDensity()); 
+            
+            createSliders();
+            initColorControls();
+            currentSeed = Math.floor(Math.random() * 1000000);
+            
+            // App state initializes with randomized settings immediately on load as per parameter 1.3
+            randomizeAllSettings();
+            updateUI();
+            generate();
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (document.getElementById('info-modal').style.display === 'flex') toggleModal(false);
+                    else toggleMenu(false);
+                }
+            });
+        }
+
+        function windowResized() {
+            let w = Math.max(1, windowWidth);
+            let h = Math.max(1, windowHeight);
+            resizeCanvas(w, h);
+            mainBuffer = createGraphics(w, h);
+            mainBuffer.pixelDensity(displayDensity());
+            generate();
+        }
+
+        function generate() {
+            if (!mainBuffer || mainBuffer.width <= 0 || mainBuffer.height <= 0) return;
+            randomSeed(currentSeed);
+            noiseSeed(currentSeed);
+            renderToBuffer(mainBuffer);
+        }
+
+        function renderToBuffer(pg) {
+            if (!pg || pg.width <= 0 || pg.height <= 0) return;
+            
+            pg.colorMode(HSB, 360, 100, 100);
+            let p = [];
+            let baseC = pg.color(config.baseColor);
+            let baseH = pg.hue(baseC);
+            let baseS = pg.saturation(baseC);
+            let baseB = pg.brightness(baseC);
+            
+            for (let i = 0; i < 40; i++) {
+                let c;
+                if (config.constrainHue) {
+                    let newH = (baseH + pg.random(-40, 40) + 360) % 360;
+                    let newS = pg.constrain(baseS + pg.random(-30, 20), 0, 100);
+                    let newB = pg.constrain(baseB + pg.random(-30, 20), 0, 100);
+                    c = pg.color(newH, newS, newB);
+                } else {
+                    c = pg.color(pg.random(360), pg.random(40, 100), pg.random(40, 100));
+                }
+                p.push(c.toString('#rrggbb'));
+            }
+            pg.colorMode(RGB, 255);
+            
+            pg.push();
+            pg.background(12);
+            pg.noiseDetail(Math.floor(config.noiseOctaves), 0.5);
+            
+            for(let i=0; i<config.glitchCount; i++) {
+                pg.push();
+                let c = color(random(p));
+                c.setAlpha(random(30, 110));
+                pg.fill(c);
+                pg.noStroke();
+                let x = random(-100, pg.width);
+                let y = random(-100, pg.height);
+                let w = random(pg.width * 0.05, pg.width * 0.4);
+                let h = random(4, 45);
+                pg.translate(x, y);
+                pg.rotate(random(TWO_PI));
+                pg.rect(0, 0, w, h);
+                pg.pop();
+            }
+
+            for (let i = 0; i < config.numAgents; i++) {
+                let agent = new ChaosAgent(pg, p);
+                agent.run();
+            }
+
+            pg.push();
+            pg.stroke(0, 180);
+            for(let i=0; i<config.inkCount; i++) {
+                pg.strokeWeight(random(0.5, 2.5));
+                let x = random(pg.width);
+                let y = random(pg.height);
+                pg.line(x, y, x + random(-25, 25), y + random(-25, 25));
+            }
+            pg.pop();
+            pg.pop();
+        }
+
+        function draw() {
+            background(8);
+            if (!mainBuffer || mainBuffer.width <= 0 || mainBuffer.height <= 0) return;
+            imageMode(CENTER);
+            image(mainBuffer, width/2, height/2);
+        }
+
+        class ChaosAgent {
+            constructor(pg, palette) {
+                this.pg = pg;
+                this.palette = palette;
+                let v = p5.Vector.random2D().mult(random(pg.width * 0.45));
+                this.pos = createVector(pg.width/2 + v.x, pg.height/2 + v.y);
+                this.angle = random(TWO_PI);
+                this.vel = p5.Vector.fromAngle(this.angle).mult(random(2, config.agentVel));
+                this.color = color(random(this.palette));
+                this.weight = random(1, config.baseWeight);
+                this.life = random(20, config.agentLife);
+                this.noiseScale = config.noiseScale;
+                
+                let varietyRoll = random(1);
+                this.type = varietyRoll < config.brushVariety ? floor(random(4)) : 0;
+            }
+
+            run() {
+                for (let i = 0; i < this.life; i++) {
+                    let prev = this.pos.copy();
+                    let n = noise(this.pos.x * this.noiseScale, this.pos.y * this.noiseScale, i * config.chaosIntensity);
+                    let angleChange = map(n, 0, 1, -PI, PI);
+                    this.vel.rotate(angleChange);
+
+                    if (random() > config.fractureProb) {
+                        this.vel.rotate(random([HALF_PI, -HALF_PI, PI]));
+                        this.color = color(random(this.palette));
+                    }
+
+                    this.pos.add(this.vel);
+
+                    if (random() > config.teleportProb) {
+                        this.pos.add(p5.Vector.random2D().mult(random(40, 160)));
+                        continue;
+                    }
+
+                    this.drawSegment(prev, this.pos, i);
+                }
+            }
+
+            drawSegment(p1, p2, step) {
+                this.pg.push();
+                let a = map(step, 0, this.life, 255, 0);
+                this.color.setAlpha(a);
+                this.pg.stroke(this.color);
+                this.pg.fill(this.color);
+
+                if (this.type === 0) {
+                    this.pg.strokeWeight(this.weight * random(0.6, 1.4));
+                    this.pg.line(p1.x, p1.y, p2.x, p2.y);
+                } 
+                else if (this.type === 1) {
+                    this.pg.strokeWeight(1);
+                    let v = p5.Vector.sub(p2, p1).rotate(HALF_PI).setMag(this.weight);
+                    this.pg.line(p1.x - v.x, p1.y - v.y, p1.x + v.x, p1.y + v.y);
+                }
+                else if (this.type === 2) {
+                    this.pg.noStroke();
+                    let angle = atan2(p2.y - p1.y, p2.x - p1.x);
+                    this.pg.translate(p1.x, p1.y);
+                    this.pg.rotate(angle);
+                    this.pg.rect(0, 0, dist(p1.x, p1.y, p2.x, p2.y) * 2, this.weight/4);
+                }
+                else {
+                    this.pg.strokeWeight(0.6);
+                    let v = p5.Vector.sub(p2, p1).rotate(HALF_PI).setMag(2);
+                    for(let j=-2; j<=2; j++) {
+                        this.pg.line(p1.x + v.x*j, p1.y + v.y*j, p2.x + v.x*j, p2.y + v.y*j);
+                    }
+                }
+                this.pg.pop();
+            }
+        }
+
+        let lastTap = 0;
+        let clickStartX = 0;
+        let clickStartY = 0;
+
+        function mousePressed(e) {
+            if (e.target.closest('#settings-panel') || e.target.closest('.menu-trigger') || e.target.closest('#info-modal')) return;
+            if (document.getElementById('settings-panel').classList.contains('open')) {
+                toggleMenu(false);
+                return;
+            }
+            if (!('ontouchstart' in window)) {
+                clickStartX = mouseX;
+                clickStartY = mouseY;
+            }
+        }
+
+        function mouseReleased(e) {
+            if (e.target.closest('#settings-panel') || e.target.closest('.menu-trigger') || e.target.closest('#info-modal')) return;
+            if (document.getElementById('settings-panel').classList.contains('open')) return;
+            
+            if (!('ontouchstart' in window)) {
+                let d = dist(clickStartX, clickStartY, mouseX, mouseY);
+                if (d < 10) {
+                    triggerRandomization(true);
+                }
+            }
+        }
+
+        function touchStarted(e) {
+            if (e.target.closest('#settings-panel') || e.target.closest('.menu-trigger') || e.target.closest('#info-modal')) return;
+            let now = Date.now();
+            if (now - lastTap < 300) {
+                triggerRandomization(true);
+            }
+            lastTap = now;
+        }
+    </script>
+
+</body></html>
